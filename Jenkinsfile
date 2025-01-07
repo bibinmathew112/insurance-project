@@ -52,7 +52,7 @@ node{
         sh "${dockerCMD} push bibinlincy/insure-me:${tagName}"
         }
      stage('Configure and Deploy to the test-server'){
-          ansiblePlaybook become: true, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml'
+          ansiblePlaybook become: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml'
      }
 }
 }
