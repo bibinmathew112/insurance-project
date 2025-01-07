@@ -51,13 +51,12 @@ node{
         sh "${dockerCMD} login -u bibinlincy -p ${dockerHubPass}"
         sh "${dockerCMD} push bibinlincy/insure-me:${tagName}"
         }
-    }
+     stage('Configure and Deploy to the test-server'){
+          ansiblePlaybook become: true, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml'
+     }
 }
-        
-    stage('Configure and Deploy to the test-server'){
-        ansiblePlaybook become: true, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml'
-    }
 }
+
 
 
 
