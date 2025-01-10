@@ -32,7 +32,7 @@ pipeline{
         }
         stage('Deploy') {
             steps {
-                sh 'sudo docker run -itd --name insurance-project -p 8085:8081 bibinlincy/insuranceproject:1'
+                sh 'sudo docker run -itd --name insurance-project -p 8086:8081 bibinlincy/insuranceproject:1'
             }
             
         }
